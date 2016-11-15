@@ -232,6 +232,14 @@ def trainer(X, C, stmodel,
                     print
 
         print 'Seen %d samples'%n_samples
+        
+        #Save when complete
+        print 'Saving...',
+        
+		params = unzip(tparams)
+		numpy.savez(saveto, history_errs=[], **params)
+		pkl.dump(model_options, open('%s.pkl'%saveto, 'wb'))
+		print 'Done'
 
 if __name__ == '__main__':
     pass
